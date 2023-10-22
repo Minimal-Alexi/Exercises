@@ -1,0 +1,76 @@
+#1
+from random import randint
+def DiceThrower():
+    x = randint(1,6)
+    return x
+
+x = DiceThrower()
+while(x != 6):
+    print(x,end=" ")
+    x=DiceThrower()
+print(x)
+#2
+from random import randint
+def DiceThrower(sides):
+    x = randint(1,sides)
+    return x
+
+sides = int(input("Input the maximum number on the dice"))
+x = DiceThrower(sides)
+while(x != sides):
+    print(x,end=" ")
+    x=DiceThrower(sides)
+print(x)
+#3
+def converter(fuel):
+    fuel=fuel*3.78541178
+    return fuel
+fuel = float(input("Enter the gallons of fuel: "))
+while(fuel >= 0):
+    print(converter(fuel), " Liters ")
+    fuel = float(input("Enter the gallons of fuel: "))
+#4
+def nsum(numbers = [] ):
+    sum = 0
+    for i in numbers:
+        sum = sum + i
+    return sum
+
+numbers = []
+x = input("Enter a number: ")
+while(x != ""):
+    numbers.append(int(x))
+    x = input("Enter a number: ")
+print(nsum(numbers))
+#5
+def nouneven(list = [] ):
+    newlist = [x for x in list if(x % 2 == 0)]
+    return newlist
+
+numbers = []
+x = input("Enter a number: ")
+while(x != ""):
+    numbers.append(int(x))
+    x = input("Enter a number: ")
+nounevenlist = nouneven(numbers)
+print(numbers)
+print(nounevenlist)
+
+#6
+import math
+def valuecalculator(diameter,price):
+    diameter = diameter/100
+    area = (diameter/2) * (diameter/2) * math.pi
+    value = price/area
+    return value
+
+diameter1 = int(input("Enter the diameter of pizza 1 "))
+diameter2 = int(input("Enter the diameter of pizza 2 "))
+price1 = float(input("Enter the price of pizza 1 "))
+price2 = float(input("Enter the price of pizza 2"))
+print(value1,value2)
+if(value1 < value2):
+    print("Pizza 1 is better ")
+elif(value1 == value2):
+    print("They have the same value")
+else: print("Pizza 2 is better")

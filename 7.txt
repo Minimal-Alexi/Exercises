@@ -1,0 +1,40 @@
+#1
+seasons =  ("Spring", "Summer", "Autumn", "Winter")
+x = int(input("Insert the number of the month (1-12): "))
+if x>=1 and x<=3:print(seasons[0])
+elif x>=4 and x<=6:print(seasons[1])
+elif x>=7 and x<=9:print(seasons[2])
+else:print(seasons[3])
+#2
+def ispresent(name, names = set()):
+    ok = False
+    for i in names:
+        if i==name: ok=True
+    if ok==True: print("Existing name")
+    else: print("New name")
+
+names = set()
+name = input("Insert name: ")
+while(name!=""):
+    ispresent(name,names)
+    names.add(name)
+    name = input("Insert name: ")
+print(names)
+#3
+print("1 - Insert new airport: ")
+print("2 - Fetch airport info: ")
+print("3 - Exit")
+UsInput = int(input("Which option would you like to select? "))
+AirportList = {}
+while(UsInput != 3):
+    if(UsInput == 1):
+        ICAO = input("Insert the ICAO code: ")
+        Airport_Name = input("Insert the airport name: ")
+        AirportList[ICAO] = Airport_Name
+    elif(UsInput == 2):
+        ICAO = input("Insert the ICAO code: ")
+        if ICAO in AirportList:
+            print(AirportList[ICAO])
+        else: print("Airport isn't available.")
+    UsInput = int(input("Which option would you like to select? "))
+print("exiting app")

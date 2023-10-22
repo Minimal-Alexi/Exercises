@@ -1,0 +1,74 @@
+#1
+import mysql.connector
+
+def AirportFinder(ICAO):
+    sql = "SELECT ident,name,municipality from AIRPORT where ident='"+ICAO+"'"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    if cursor.rowcount > 0:
+        for row in result:
+            print(f"Airport {row[0]} has the name of {row[1]} and is in the city of {row[2]}")
+
+connection = mysql.connector.connect(
+         host='127.0.0.1',
+         port= 3306,
+         database='flight_game',
+         user='root',
+         password='PmmcMAsmni2004',
+         autocommit=True
+         )
+
+ICAO = input("Please enter the ICAO code of the airport: ")
+AirportFinder(ICAO)
+
+#2
+import mysql.connector
+
+def AirportsArea(ISO_COUNTRY):
+    sql = "SELECT ident,type,name,iso_country FROM AIRPORT WHERE ISO_COUNTRY='"+ISO_COUNTRY+"' ORDER BY TYPE"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    if cursor.rowcount > 0:
+        for row in result:
+            print(f"ICAO: {row[0]} Type: {row[1]} Name:{row[2]} Country:{row[3]}")
+
+connection = mysql.connector.connect(
+         host='127.0.0.1',
+         port= 3306,
+         database='flight_game',
+         user='root',
+         password='PmmcMAsmni2004',
+         autocommit=True
+         )
+
+AreaCode = input("Enter the area code: ")
+AirportsArea(AreaCode)
+
+#3
+import mysql.connector
+from geopy import distance
+def AirportsArea(ICAO1,ICAO2):
+    sql = "SELECT latitude_deg,longitude_deg from airport where IDENT='"+ICAO1+"'"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result1 = cursor.fetchall()
+    sql = "SELECT latitude_deg,longitude_deg from airport where IDENT='" + ICAO2 + "'"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result2 = cursor.fetchall()
+    print(distance.distance(result1,result2))
+
+connection = mysql.connector.connect(
+         host='127.0.0.1',
+         port= 3306,
+         database='flight_game',
+         user='root',
+         password='PmmcMAsmni2004',
+         autocommit=True
+         )
+
+ICAO1=input("Enter the first ICAO code: ")
+ICAO2=input("Enter the second ICAO code: ")
+AirportsArea(ICAO1,ICAO2)

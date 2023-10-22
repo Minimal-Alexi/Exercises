@@ -1,0 +1,59 @@
+#1
+number = 1
+while number<=1000:
+    if(number%3==0):
+        print(number," ")
+    number = number + 1
+#2
+inches = float(input("Enter the number of inches: "))
+while(inches>=0):
+    print(inches*2.54," Centimeters ")
+    inches = float(input("Enter the number of inches: "))
+#3
+number = int(input("Enter number: "))
+min = 2147483646
+max = -2147483647
+while(number!=None):
+    if(number>max):
+        max=number
+    if(number<min):
+        min=number
+    number = int(input("Enter number: "))
+print("Minimum value is: ", min , "\n", "Maximum value is: ",max)
+#4
+from random import randint
+number =  randint(1,10)
+guess = int(input("Guess a number between 1-10: "))
+while guess!=number:
+    if guess>number:
+        print("Too high")
+    if guess<number:
+        print("Too low")
+    guess = int(input("Guess a number between 1-10: "))
+print("Correct")
+#5
+count = 5
+username = input("Enter your username: ")
+password = input("Enter your password: ")
+while username!="python" and password!="rules" and count:
+    print("Wrong information: ")
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+    count=count-1
+if count==0: print("Access denied.")
+else: print("Welcome!")
+#6
+from random import random
+N=int(input("How many random points do you want: "))
+count=0
+n=0
+while count != N:
+    count = count + 1
+    x = random()
+    x = -1 + (x *(1 - (-1)))
+    y = random()
+    y = -1 + (y * (1 - (-1)))
+    if((x * x) + (y * y)<1):
+        n=n+1
+pi=float (4*n/N)
+print(pi)

@@ -1,0 +1,32 @@
+#1
+from random import randint
+number = int(input("How many dices do you want to throw?"))
+for i in range(0,number,1):
+    print(randint(1,6))
+#2
+usinput = input("Enter a number:")
+numbers = []
+while usinput!="":
+    numbers.append(int(usinput))
+    usinput = input("Enter a number:")
+numbers.sort(reverse=True)
+for i in range(0,5,1):
+    print(numbers[i],end=" ")
+#3
+n = int(input("Enter number: "))
+ok = True
+i = 2
+while ok == True and i <= n/2:
+    if n % i == 0:
+        ok = False
+    i=i+1
+if ok==True:
+    print(n," is prime.")
+else:
+    print(n, " isn't prime.")
+#4
+cities = []
+for i in range(0,5,1):
+    cities.append(input("Enter the cities name: "))
+for i in range(0,5,1):
+    print(cities[i])
